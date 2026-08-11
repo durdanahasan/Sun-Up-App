@@ -1,4 +1,5 @@
 import SwiftUI
+import CoreText
 
 enum SunUpTheme {
     static let yellow = Color(red: 1, green: 222 / 255, blue: 0)
@@ -9,7 +10,20 @@ enum SunUpTheme {
 }
 
 extension Font {
-    static func sunUpTitle(_ size: CGFloat = 38) -> Font { .system(size: size, weight: .black, design: .rounded) }
+    static func sunUpTitle(_ size: CGFloat = 44) -> Font { .custom("Oswald", size: size).weight(.bold) }
+    static func sunUpCardTitle(_ size: CGFloat = 18) -> Font { .custom("Oswald", size: size).weight(.medium) }
+    static func sunUpCardTitleBeach(_ size: CGFloat = 16) -> Font { .custom("Oswald", size: size).weight(.medium) }
+}
+
+enum AppFontRegistrar {
+    static func registerFonts() {
+        guard let url = Bundle.main.url(
+            forResource: "Oswald-VariableFont_wght",
+            withExtension: "ttf"
+        ) else { return }
+
+        CTFontManagerRegisterFontsForURL(url as CFURL, .process, nil)
+    }
 }
 
 extension Decimal {

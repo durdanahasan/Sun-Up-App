@@ -58,7 +58,7 @@ struct BeachRow: View {
     var body: some View {
         HStack(spacing: 12) {
             ZStack { RoundedRectangle(cornerRadius: 10).fill(SunUpTheme.yellow.opacity(0.25)); Image(systemName: "beach.umbrella.fill").foregroundStyle(.orange) }.frame(width: 52, height: 52)
-            VStack(alignment: .leading, spacing: 4) { Text(beach.name).fontWeight(.bold); Text("\(beach.distanceKilometers, specifier: "%.1f") km  •  \(beach.deliveryMinutes) min delivery").font(.caption).foregroundStyle(.secondary) }
+            VStack(alignment: .leading, spacing: 4) { Text(beach.name).font(.sunUpCardTitleBeach()); Text("\(beach.distanceKilometers, specifier: "%.1f") km  •  \(beach.deliveryMinutes) min delivery").font(.caption).foregroundStyle(.secondary) }
             Spacer(); Image(systemName: "chevron.right").foregroundStyle(.secondary)
         }.padding(12).background(.white).clipShape(RoundedRectangle(cornerRadius: 15))
     }
@@ -71,7 +71,7 @@ struct KitCardView: View {
     var increment: (() -> Void)?
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            HStack { Text("\(kit.peopleCount)").fontWeight(.bold).frame(width: 28, height: 28).background(SunUpTheme.teal).foregroundStyle(.white).clipShape(Circle()); Text(kit.name).fontWeight(.heavy).minimumScaleFactor(0.8) }
+            HStack { Text("\(kit.peopleCount)").fontWeight(.bold).frame(width: 28, height: 28).background(SunUpTheme.teal).foregroundStyle(.white).clipShape(Circle()); Text(kit.name).font(.sunUpCardTitle()).minimumScaleFactor(0.8) }
             Divider()
             ForEach(kit.contents, id: \.name) { Text("\($0.quantity) \($0.name.lowercased())").font(.caption).foregroundStyle(.secondary) }
             HStack(alignment: .firstTextBaseline, spacing: 4) { Text(kit.priceAED.aed).fontWeight(.black); Text("/ for \(kit.peopleCount) people").font(.caption2).foregroundStyle(.secondary) }

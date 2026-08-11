@@ -9,7 +9,7 @@ struct HomeView: View {
             VStack(spacing: 0) {
                 VStack(alignment: .leading, spacing: 18) {
                     HStack { Image(systemName: "person.circle"); Text(session.user?.fullName ?? MockData.user.fullName).font(.subheadline); Spacer(); NavigationLink { NotificationsView(viewModel: .init(service: session.dependencies.notificationService)) } label: { Image(systemName: "bell") }.foregroundStyle(.black) }
-                    Text("Which beach today?").font(.sunUpTitle(32))
+                    Text("Which beach today?").font(.sunUpTitle(44))
                     HStack { Image(systemName: "location"); TextField("Search beach", text: $viewModel.search); if !viewModel.search.isEmpty { Button { viewModel.search = "" } label: { Image(systemName: "xmark") } } }.padding().background(.white).clipShape(RoundedRectangle(cornerRadius: 14)).foregroundStyle(.black)
                 }.padding(20).background(SunUpTheme.yellow).clipShape(UnevenRoundedRectangle(bottomLeadingRadius: 32, bottomTrailingRadius: 32))
 

@@ -21,7 +21,7 @@ struct MapScreen: View {
                 Spacer()
                 if let beach = selectedBeach {
                     VStack(spacing: 14) {
-                        HStack { Image(systemName: "beach.umbrella.fill").frame(width: 52, height: 52).background(SunUpTheme.yellow.opacity(0.3)).clipShape(RoundedRectangle(cornerRadius: 12)); VStack(alignment: .leading) { Text(beach.name).fontWeight(.heavy); Text("\(beach.distanceKilometers, specifier: "%.1f") km  •  \(beach.deliveryMinutes) min delivery  •  \(beach.rating, specifier: "%.1f") ★").font(.subheadline).foregroundStyle(.secondary) }; Spacer() }
+                        HStack { Image(systemName: "beach.umbrella.fill").frame(width: 52, height: 52).background(SunUpTheme.yellow.opacity(0.3)).clipShape(RoundedRectangle(cornerRadius: 12)); VStack(alignment: .leading) { Text(beach.name).font(.sunUpCardTitle()); Text("\(beach.distanceKilometers, specifier: "%.1f") km  •  \(beach.deliveryMinutes) min delivery  •  \(beach.rating, specifier: "%.1f") ★").font(.subheadline).foregroundStyle(.secondary) }; Spacer() }
                         NavigationLink { CheckoutView(viewModel: .init(beach: beach, kits: viewModel.kits, service: session.dependencies.orderService)) } label: { Text("Order here").fontWeight(.bold).frame(maxWidth: .infinity).frame(height: 50).background(SunUpTheme.yellow).foregroundStyle(.black).clipShape(RoundedRectangle(cornerRadius: 13)).overlay(RoundedRectangle(cornerRadius: 13).stroke(.black)) }
                     }.padding(16).background(.white).clipShape(RoundedRectangle(cornerRadius: 18)).padding(18)
                 }

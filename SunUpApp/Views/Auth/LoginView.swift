@@ -5,7 +5,7 @@ struct LoginView: View {
     @StateObject var viewModel: LoginViewModel
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
-            Text("Log in").font(.sunUpTitle()).padding(.top, 48)
+            Text("Log in").font(.sunUpTitle()).padding(.top, 20)
             Text("Enter your email and password to log in").fontWeight(.semibold).foregroundStyle(SunUpTheme.secondaryText)
             IconTextField(icon: "envelope", placeholder: "Email", text: $viewModel.email, revealSecure: .constant(true), keyboard: .emailAddress)
             IconTextField(icon: "lock", placeholder: "Password", text: $viewModel.password, isSecure: true, revealSecure: $viewModel.isPasswordVisible)
