@@ -4,6 +4,10 @@ import SwiftUI
 struct SunUpApp: App {
     @StateObject private var session = AppSession(dependencies: .make())
 
+    init() {
+        AppFontRegistrar.registerFonts()
+    }
+
     var body: some Scene {
         WindowGroup {
             RootView()

@@ -5,7 +5,7 @@ struct SignUpView: View {
     @StateObject var viewModel: SignUpViewModel
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
-            Text("Create account").font(.sunUpTitle()).padding(.top, 48)
+            Text("Create account").font(.sunUpTitle()).padding(.top, 20)
             Text("Enter your name, email and password to create an account").fontWeight(.semibold).foregroundStyle(SunUpTheme.secondaryText)
             IconTextField(icon: "person", placeholder: "Full name", text: $viewModel.fullName, revealSecure: .constant(true))
             IconTextField(icon: "envelope", placeholder: "Email", text: $viewModel.email, revealSecure: .constant(true), keyboard: .emailAddress)

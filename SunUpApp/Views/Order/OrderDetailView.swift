@@ -8,7 +8,7 @@ struct OrderDetailView: View {
             ScreenHeader(title: "Order \(order.reference)", backAction: { dismiss() })
             ScrollView {
                 VStack(alignment: .leading, spacing: 22) {
-                    HStack { Image(systemName: "beach.umbrella.fill").frame(width: 52, height: 52).background(SunUpTheme.yellow.opacity(0.25)).clipShape(RoundedRectangle(cornerRadius: 11)); VStack(alignment: .leading) { Text(order.beach.name).fontWeight(.heavy); Text(order.deliveryDate.formatted(date: .abbreviated, time: .shortened)).foregroundStyle(.secondary) }; Spacer(); StatusBadge(status: order.status) }.padding().background(.white).clipShape(RoundedRectangle(cornerRadius: 16))
+                    HStack { Image(systemName: "beach.umbrella.fill").frame(width: 52, height: 52).background(SunUpTheme.yellow.opacity(0.25)).clipShape(RoundedRectangle(cornerRadius: 11)); VStack(alignment: .leading) { Text(order.beach.name).font(.sunUpCardTitle()); Text(order.deliveryDate.formatted(date: .abbreviated, time: .shortened)).foregroundStyle(.secondary) }; Spacer(); StatusBadge(status: order.status) }.padding().background(.white).clipShape(RoundedRectangle(cornerRadius: 16))
                     Text("Delivery status").font(.headline).foregroundStyle(.secondary)
                     OrderTimeline(status: order.status)
                     Text("Kits ordered").font(.headline).foregroundStyle(.secondary)
